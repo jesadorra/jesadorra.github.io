@@ -1,0 +1,1220 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>
+          Battlegrounds
+		</title>
+	   <meta charset="utf-8">
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	   <style>
+		
+		body {
+		background-image: url("bg2.png");
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-color: white;
+		}
+		
+		@font-face {
+		font-family: "Ketchum";
+		src: url("fonts/ketchum.otf") format("woff2"),
+        url("ketchum-webfont.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		}
+		
+		#levelnumber{
+		text-align:center;
+		font-family: "Ketchum";
+		font-size: 140px;
+		-webkit-text-stroke: 4px #3b5ba7; 
+		color: #ffcb05;
+		text-shadow: -5px 5px #1c2c5e;
+		animation: animate 1.5s linear infinite;
+		text-decoration: none;
+		}
+		
+		#levelnumber a {
+		text-decoration: none;
+		-webkit-text-stroke: 4px #3b5ba7; 
+		color: #ffcb05;
+		text-shadow: -5px 5px #1c2c5e;
+		}
+		
+		@keyframes animate {
+		
+		0% {
+			transform: translateY(-2px);
+		}
+		
+		50% {
+			transform: translateY(2px);
+		}
+		
+		100% {
+			transform: translateY(-2px);
+		}
+		}
+		
+		@keyframes move {
+		
+		0% {
+			transform: translateY(-0.5px);
+		}
+		
+		50% {
+			transform: translateY(0.5px);
+		}
+		
+		100% {
+			transform: translateY(-0.5px);
+		}
+		}
+		
+		#playingfield {
+		width: 1000px;
+		margin-left:auto;
+		margin-right:auto;
+		}
+		
+		#player{
+		float:left;
+		font-family: 'Press Start 2P', cursive;
+		margin-top: 21px;
+		padding-top:5px;
+		font-size:20px;
+		color: #ffcb05;
+		background-color: #3b5ba7;
+		padding-left: 10px;
+		padding-right: 10px;
+		border-radius: 50px;
+		animation: move 0.3s linear infinite;
+		}
+	
+		#computer{
+		float:right;
+		font-family: 'Press Start 2P', cursive;
+		color:  #ffcb05;
+		padding-top:5px;
+		border-radius: 50px;
+		font-size:20px;
+		margin-left:-20px;
+		margin-top: 21px;
+		background-color: #3b5ba7;
+		padding-left: 10px;
+		padding-right: 10px;
+		animation: move 0.3s linear infinite;
+		}
+		
+		#playerpokemon{
+		float:left;
+		display:block;
+		height: 250px;
+		width:250px;
+		margin-left: 60px;
+		margin-top:50px;
+		}
+		
+		#computerpokemon{
+		float:right;
+		display:block;
+		height: 250px;
+		width:250px;
+		margin-right: 70px;
+		margin-top:50px;
+		}
+	
+		#thepokemons {
+		width: 1000px;
+		margin-left:auto;
+		margin-right:auto;
+		height:300px;
+		}
+		
+		#choosetype {
+		width: 1000px;
+		margin-right:auto;
+		margin-left:auto;
+		height: 100px;
+		}
+		
+		#choose{
+		margin-right:auto;
+		margin-left:auto;
+		}
+
+		#navbar{
+		background-color: #3b5ba7;
+		color: white;
+		height: 60px;
+		font-family: 'Press Start 2P', cursive;
+		}
+		
+		#authors, #instructions, #reset {
+		font-size: 15px;
+		border-right: 2px solid #758ABD;
+		transition: 0.2s;
+		padding-bottom:15px;
+		}
+		
+		#authors:hover, #instructions:hover, #reset:hover {
+		background-color: #758ABD;
+		}
+		
+		#decoratept1, #decoratept2, #decoratept3, #decoratept4, #decoratept5{
+		text-align: center;
+		font-family: 'Press Start 2P', cursive;
+		}
+		
+		#decoratept11 input, #decoratept22 input, #decoratept33 input, #decoratept44 input, #decoratept55 input {
+		margin-left: 41px;
+		}
+		
+		#decoratept1 button:hover {
+		background-color: #EC4726;
+		}
+		
+		#decoratept11 button:hover {
+		background-color: #EC4726;
+		}
+		
+		#decoratept2 button:hover {
+		background-color: #B3953C;
+		}
+		
+		#decoratept22 button:hover {
+		background-color: #B3953C;
+		}
+		
+		#decoratept3 button:hover {
+		background-color: #6dd3f5;
+		}
+		
+		#decoratept33 button:hover {
+		background-color: #6dd3f5;
+		}
+		
+		#decoratept4 button:hover {
+		background-color:#9e863d;
+		}
+		
+		#decoratept44 button:hover {
+		background-color:#9e863d;
+		}
+		
+		#decoratept5 button:hover {
+		background-color: #82AE32;
+		}
+		
+		#decoratept55 button:hover {
+		background-color: #82AE32;
+		}
+	
+		#decoratept2 input, #decoratept3 input, #decoratept4 input, #decoratept11 input, #decoratept22 input, #decoratept33 input  {
+		border: 1.8px solid white;
+		border-radius: 50px;
+		}
+	
+		#firetype {
+		background-color: tomato;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 30px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 30px;
+		}
+		
+		#firetype1 {
+		background-color: tomato;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 30px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 30px;
+		}
+		
+		#groundtype {
+		background-color: darkkhaki;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 10px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 10px;
+		}
+		
+		#groundtype1 {
+		background-color: darkkhaki;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 10px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 10px;
+		}
+		
+		#icetype {
+		background-color: #a9e9fe;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 35px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 35px;
+		}
+		
+		#icetype1 {
+		background-color: #a9e9fe;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 35px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 35px;
+		}
+		
+		#rocktype {
+		background-color: #b9a256;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 26px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 26px;
+		}
+		
+		#rocktype1 {
+		background-color: #b9a256;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 26px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 26px;
+		}
+		
+		#grasstype {
+		background-color: yellowgreen;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 20px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 20px;
+		}
+		
+		#grasstype1 {
+		background-color: yellowgreen;
+		border: solid 1.5px black;
+		border-radius: 50px;
+		padding:5px;
+		color: white;
+		padding-left: 20px;
+		-webkit-text-stroke: 1.1px black;
+		padding-right: 20px;
+		}
+		
+		#next {
+		margin: 0;
+		position: absolute;
+		left: 50%;
+		top: 85%;
+		width: 800px;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+		padding: 10px;
+		font-family: 'Press Start 2P', cursive;
+		border-radius: 50px;
+		background-color: #ffcb05;
+		color: #3b5ba7;
+		border: 1px solid #ffcb05;
+		}
+		
+		#next:hover {
+		background-color: #E6B90D;
+		}
+		
+		#battle {
+		margin: 0;
+		position: absolute;
+		left: 50%;
+		top: 85%;
+		width: 800px;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+		padding: 10px;
+		font-family: 'Press Start 2P', cursive;
+		border-radius: 50px;
+		color: #ffcb05;
+		background-color: #3b5ba7;
+		border: 0.1px solid #3b5ba7;
+		transition: 0.02s;
+		}
+		
+		#battle:hover {
+		background-color: #41578C;
+		}
+		
+		#plan {
+		margin: 0;
+		position: absolute;
+		left: 65%;
+		top: 85%;
+		width: 500px;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+		padding: 10px;
+		font-family: 'Press Start 2P', cursive;
+		border-radius: 50px;
+		color: #ffcb05;
+		background-color: #3b5ba7;
+		border: 0.1px solid #3b5ba7;
+		transition: 0.02s;
+		}
+		
+		#plan:hover {
+		background-color: #41578C;
+		}
+		
+		#decoratept11, #decoratept22, #decoratept33, #decoratept44, #decoratept55 {
+		transform: translateY(-100%);
+		font-family: 'Press Start 2P', cursive;
+		}
+		
+		#resume {
+		margin: 0;
+		position: absolute;
+		left: 50%;
+		top: 85%;
+		width: 800px;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+		padding: 10px;
+		font-family: 'Press Start 2P', cursive;
+		border-radius: 50px;
+		background-color: #ffcb05;
+		color: #3b5ba7;
+		border: 1px solid #ffcb05;
+		transition: 0.06s;
+		}
+		
+		#resume:hover {
+		background-color: #E6B90D;
+		}
+		
+		#gameover {
+		background-color: #386EAF;
+		height: 500px;
+		color: #ffcb05;
+		width: 1000px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		top:30%;
+		left:23.9%;
+		position: absolute;
+		border-radius: 30px;
+		animation: move 1s linear infinite;
+		text-align: center;
+		font-family: 'Press Start 2P', cursive;
+		}
+		
+		#gameover h1 {
+		font-size: 85px;
+		-webkit-text-stroke: 3px #3b5ba7; 
+		text-shadow: -3px 5px #1c2c5e;
+		}
+		
+		h5 {
+		font-size: 15px;
+		}
+		
+		#gameover button {
+		background-color: #ffcb05;
+		color: #3b5ba7;
+		border-radius: 50px;
+		height: 60px;
+		width: 650px;
+		font-size: 30px;
+		transition: 0.02s;
+		}
+		
+		#gameover button:hover {
+		background-color: #E6B90D;
+		}
+		
+		#winscreen {
+		background-color: #386EAF;
+		height: 500px;
+		color: #ffcb05;
+		width: 1000px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		top:30%;
+		left:23.9%;
+		position: absolute;
+		border-radius: 30px;
+		animation: move 1s linear infinite;
+		text-align: center;
+		font-family: 'Press Start 2P', cursive;
+		}
+		
+		#winscreen h1 {
+		font-size: 85px;
+		-webkit-text-stroke: 3px #3b5ba7; 
+		text-shadow: -3px 5px #1c2c5e;
+		}
+		
+		#winscreen button {
+		background-color: #ffcb05;
+		color: #3b5ba7;
+		border-radius: 50px;
+		height: 60px;
+		width: 650px;
+		font-size: 30px;
+		transition: 0.02s;
+		}
+		
+		#winscreen button:hover {
+		background-color: #E6B90D;
+		}
+		
+		td{
+		padding-left: 30px;
+		padding-right: 30px;
+		}
+		
+		td a:link, td a:visited{
+		color: white;
+		text-decoration: none;
+		}
+		
+		
+		
+		</style>
+	</head>
+	<body>
+	<div id="navbar">
+		<table>
+			<tr>
+				<td id="authors"><a href="authors.html"><br>The Creators</a></td>
+				<td id="instructions"><a href="instructions.html"><br>Instructions</a></td>
+				<td id="reset" onclick="fullreset()"><br>Reset Game</td>	
+			</tr>
+		</table>
+		
+	</div>
+	<br>
+	<br>
+	<h1 id = "levelnumber"><a href="index.html">Pokébattle!</a></h1>
+	<br>
+	<br>
+	<div id = "playingfield">
+		<p id = "player">PLAYER HEALTH: 10</p>
+		<p id = "computer">COMPUTER HEALTH: 10</p>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div id = "thepokemons">
+		<img id = "playerpokemon" src = "pokeball.gif"  alt = "pokemon">
+		<img id = "computerpokemon" src = "pokeball.gif"  width = "100" height = "100" alt = "pokemon">
+		
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id = "choosetype">
+	<table id ="choose">
+		<tr>
+			<td id= "decoratept1" ><input type="image" src="types/fire.png" onclick="fire()" style="height:40px;" alt="fire type"><br><button id="firetype" type="button" class="btn btn-outline-danger" onclick="fire()">FIRE</button></td>
+			<td id= "decoratept2" ><input type="image" src="types/ground.png" style="height:40px;" onclick="ground()" alt="ground type"><br><button id="groundtype" type="button" class="btn btn-outline-danger" onclick="ground()">GROUND</button></td>
+			<td id= "decoratept3" ><input type="image" src="types/ice.png" style="height:40px;" onclick="ice()" alt="icetype"><br><button id="icetype" type="button" class="btn btn-outline-danger" onclick="ice()">ICE</button></td>
+			<td id= "decoratept4" ><input type="image" src="types/rock.png" style="height:40px;" onclick="rock()" alt="rocktype"><br><button id="rocktype" type="button" class="btn btn-outline-danger" onclick="rock()">ROCK</button></td>
+			<td id= "decoratept5" ><input type="image" src="types/grass.png" style="height:40px;" onclick="grass()" alt="grasstype"><br><button id="grasstype" type="button" class="btn btn-outline-danger" onclick="grass()">GRASS</button></td>
+		</tr>
+		
+		<tr id="choices2">
+			<td id= "decoratept11" ><input type="image" src="types/fire.png" onclick="fire1()" style="height:40px;" alt="fire type"><br><button id="firetype1" type="button" class="btn btn-outline-danger" onclick="fire1()">FIRE</button></td>
+			<td id= "decoratept22" ><input type="image" src="types/ground.png" style="height:40px;" onclick="ground1()" alt="ground type"><br><button id="groundtype1" type="button" class="btn btn-outline-danger" onclick="ground1()">GROUND</button></td>
+			<td id= "decoratept33" ><input type="image" src="types/ice.png" style="height:40px;" onclick="ice1()" alt="icetype"><br><button id="icetype1" type="button" class="btn btn-outline-danger" onclick="ice1()">ICE</button></td>
+			<td id= "decoratept44" ><input type="image" src="types/rock.png" style="height:40px;" onclick="rock1()" alt="rocktype"><br><button id="rocktype1" type="button" class="btn btn-outline-danger" onclick="rock1()">ROCK</button></td>
+			<td id= "decoratept55" ><input type="image" src="types/grass.png" style="height:40px;" onclick="grass1()" alt="grasstype"><br><button id="grasstype1" type="button" class="btn btn-outline-danger" onclick="grass1()">GRASS</button></td>
+		</tr>
+		
+		<tr>
+			<td> &nbsp; </td>
+			<td id= "decoratept6" ><button id="next" type="button" class="btn btn-info" onclick="next()">READY?</button> </td>
+			<td id= "decoratept7" ><button id="battle" type="button" class="btn btn-info" onclick="battle(); buttonResize()">BATTLE!</button> </td>
+			<td id= "decoratept8" ><button id="plan" type="button" class="btn btn-info" onclick="plan()">CHANGE POKEMON</button> </td>
+			<td id= "decoratept9" ><button id="resume" type="button" class="btn btn-info" onclick="resumeBattle()">RESUME BATTLE</button> </td>
+		</tr>
+		
+	</table>
+	
+		<div id="gameover">
+		<h1>YOU LOST</h1>
+		<h5>Your pokémon ran out of HP, it blacked out!</h5><br><br><br>
+		<h3><button id="tryagain" type="button" class="btn btn-info" onclick="fullreset()">Try again?</button></h3>
+		</div>
+		
+		<div id="winscreen">
+		<h1>YOU WON!</h1>
+		<h5>You beat the computer's pokémon. Great job!</h5><br><br><br>
+		<h3><button id="tryagain2" type="button" class="btn btn-info" onclick="fullreset()">Try again?</button></h3>
+		</div>
+			
+	</div>
+	
+	<script>
+	var x = 0;
+	
+	var playerchoice = "";
+	
+	var computerchoice = "";
+	
+	var playerhealth = 10;
+	
+	var computerhealth = 10;
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept7").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	document.getElementById("winscreen").style.visibility = "hidden";
+
+	function fullreset(){
+
+	computerhealth=10;
+	playerhealth=10;
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept7").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "hidden";
+	
+	document.getElementById("decoratept1").style.visibility = "visible";
+	
+	document.getElementById("decoratept2").style.visibility = "visible";
+	
+	document.getElementById("decoratept3").style.visibility = "visible";
+	
+	document.getElementById("decoratept4").style.visibility = "visible";
+	
+	document.getElementById("decoratept5").style.visibility = "visible";
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept7").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	document.getElementById("winscreen").style.visibility = "hidden";
+	
+	document.getElementById("playerpokemon").src = 'pokeball.gif';
+	
+	document.getElementById("computerpokemon").src = 'pokeball.gif';
+	
+	document.getElementById("player").innerHTML = "PLAYER HEALTH: 10";	
+	
+	document.getElementById("computer").innerHTML = "COMPUTER HEALTH: 10";	
+	
+	document.getElementById("battle").disabled = false;
+	
+	document.getElementById("plan").disabled = false;
+	
+	document.getElementById("battle").style.width="800px";
+	document.getElementById("battle").style.marginLeft= "0px";
+
+	x = 0;
+	
+	playerchoice = "";
+	
+    computerchoice = "";
+	
+	}
+	
+	function plan(){
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept7").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept11").style.visibility = "visible";
+	
+	document.getElementById("decoratept22").style.visibility = "visible";
+	
+	document.getElementById("decoratept33").style.visibility = "visible";
+	
+	document.getElementById("decoratept44").style.visibility = "visible";
+	
+	document.getElementById("decoratept55").style.visibility = "visible";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	document.getElementById("playerpokemon").src = 'pokeball.gif';
+	
+	
+	}
+	function battle(){
+	document.getElementById("decoratept8").style.visibility = "visible";
+
+	var critAttack1 = 0;
+	var critAttack = 0;
+	
+	// FIRE 
+	if (playerchoice == "fire"  & computerchoice == "fire"){
+	alert("You both lose 1 hp!")
+	playerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "fire" & computerchoice == "rock"){
+	alert("The computer's attack was super effective!")
+	critAttack = playerhealth -= 5;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + critAttack;
+	}
+	
+	else if (playerchoice == "fire" & computerchoice == "ground"){
+	alert("You lost 1 hp!")
+	playerhealth--;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	}
+	
+	else if (playerchoice == "fire" & computerchoice == "grass"){
+	alert("Computer lost 1 hp!")
+	computerhealth--;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "fire" & computerchoice == "ice"){
+	alert("Your attack was super effective!")
+	critAttack1 = computerhealth -= 5;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + critAttack1;
+	}
+	
+	
+	
+	
+	// GRASS 
+	else if (playerchoice == "grass" & computerchoice == "grass"){
+	alert("You both lose 1 hp!")
+	playerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "grass" & computerchoice == "fire"){
+	alert("The computer's attack was super effective!")
+	critAttack = playerhealth -= 5;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + critAttack;
+	}
+	
+	else if (playerchoice == "grass" & computerchoice == "ice"){
+	alert("You lost 1 hp!")
+	playerhealth--;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	}
+	
+	else if (playerchoice == "grass" & computerchoice == "ground"){
+	alert("Computer lost 1 hp!")
+	computerhealth--;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "grass" & computerchoice == "rock"){
+	alert("Your attack was super effective!")
+	critAttack1 = computerhealth -= 5;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + critAttack1;
+	}
+	
+	
+	
+	
+	//ROCK
+	else if (playerchoice == "rock" & computerchoice == "rock"){
+	alert("You both lose 1 hp!")
+	playerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "rock" & computerchoice == "grass"){
+	alert("The computer's attack was super effective!")
+	critAttack = playerhealth -= 5;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + critAttack;
+	}
+	
+	else if (playerchoice == "rock" & computerchoice == "ground"){
+	alert("You lost 1 hp!")
+	playerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	}
+	
+	else if (playerchoice == "rock" & computerchoice == "ice"){
+	alert("Computer lost 1 hp!")
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "rock" & computerchoice == "fire"){
+	alert("Your attack was super effective!")
+	critAttack1 = computerhealth -= 5;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + critAttack1;
+	}
+	
+	
+	
+	
+	
+	// ICE
+	else if (playerchoice == "ice" & computerchoice == "ice"){
+	alert("You both lose 1 hp!")
+	lplayerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "ice" & computerchoice == "rock"){
+	alert("Computer lost 1 hp!")
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "ice" & computerchoice == "fire"){
+	alert("The computer's attack was super effective!")
+	critAttack = playerhealth -= 5;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + critAttack;
+	}
+	
+	else if (playerchoice == "ice" & computerchoice == "ground"){
+	alert("Your attack was super effective!")
+	critAttack1 = computerhealth -= 5;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + critAttack1;
+	}
+	
+	else if (playerchoice == "ice" & computerchoice == "grass"){
+	alert("Computer lost 1 hp!")
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	
+	
+	
+	
+	// GROUND
+	else if (playerchoice == "ground" & computerchoice == "ground"){
+	alert("You both lose 1 hp!")
+	playerhealth-- ;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + playerhealth;
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "ground" & computerchoice == "grass"){
+	alert("Your attack was super effective!")
+	critAttack1 = computerhealth -= 5;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + critAttack1;
+	}
+	
+	else if (playerchoice == "ground" & computerchoice == "ice"){
+	alert("The computer's attack was super effective!")
+	critAttack = playerhealth -= 5;
+	document.getElementById('player').innerHTML = "PLAYER HEALTH: " + critAttack;
+	}
+	
+	else if (playerchoice == "ground" & computerchoice == "fire"){
+	alert("Computer lost 1 hp!")
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	else if (playerchoice == "ground" & computerchoice == "rock"){
+	alert("Computer lost 1 hp!")
+	computerhealth-- ;
+	document.getElementById('computer').innerHTML = "COMPUTER HEALTH: " + computerhealth;
+	}
+	
+	if (playerhealth <= 0){
+	document.getElementById("player").innerHTML = "PLAYERHEALTH: 0";
+	
+	document.getElementById("gameover").style.visibility = "visible";
+	
+	document.getElementById("winscreen").style.visibility = "hidden";
+	
+	document.getElementById("battle").disabled = true;
+	
+	document.getElementById("plan").disabled = true;
+	
+	}
+	
+	else if (computerhealth <= 0){
+	
+	document.getElementById("winscreen").style.visibility = "visible";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	document.getElementById("battle").disabled = true;
+	
+	document.getElementById("plan").disabled = true;
+	}
+	
+	}
+	
+	
+	function next() {
+	document.getElementById("decoratept7").style.visibility = "visible";
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	x = Math.ceil(Math.random() * (5));
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	if (x == 1){
+	computerchoice = "fire";
+	document.getElementById("computerpokemon").src = 'pokemons/charmander1.gif';
+	console.log("fire");
+	}
+	
+	else if (x == 2){
+	computerchoice = "ground";
+	document.getElementById("computerpokemon").src = 'pokemons/cubone1.gif';
+	console.log("ground");
+	}
+	
+	else if (x == 3){
+	computerchoice = "rock";
+	document.getElementById("computerpokemon").src = 'pokemons/onix1.gif';
+	console.log("rock");
+	}
+	
+	else if (x == 4){
+	computerchoice = "grass";
+	document.getElementById("computerpokemon").src = 'pokemons/bulbasaur1.gif';
+	console.log("grass");
+	}
+	
+	else if (x == 5){
+	computerchoice = "ice";
+	document.getElementById("computerpokemon").src = 'pokemons/dewgong1.gif';
+	console.log("ice");
+	}
+	
+	}
+	
+	
+	function fire(){
+	playerchoice = "fire";
+	document.getElementById("playerpokemon").src = 'pokemons/charmander.gif';
+	
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "visible";
+	
+	console.log("fire");
+	}
+	
+	function fire1(){
+	playerchoice = "fire";
+	document.getElementById("playerpokemon").src = 'pokemons/charmander.gif';
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "visible";
+	
+	console.log("fire");
+	}
+	
+	function ground(){
+	playerchoice = "ground";
+	
+	document.getElementById("playerpokemon").src = 'pokemons/cubone.gif';
+	
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "visible";
+	
+	console.log("ground");
+	}
+	
+	function ground1(){
+	playerchoice = "ground";
+	
+	document.getElementById("playerpokemon").src = 'pokemons/cubone.gif';
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "visible";
+	
+	console.log("ground");
+	}
+	
+	function rock(){
+	playerchoice = "rock";
+	document.getElementById("playerpokemon").src = 'pokemons/onix.gif';
+	
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "visible";
+	console.log("rock");
+	}
+	
+	function rock1(){
+	playerchoice = "rock";
+	document.getElementById("playerpokemon").src = 'pokemons/onix.gif';
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "visible";
+	
+	console.log("rock");
+	}
+	
+	function grass(){
+	playerchoice = "grass";
+	document.getElementById("playerpokemon").src = 'pokemons/bulbasaur.gif';
+	
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	
+	document.getElementById("decoratept6").style.visibility = "visible";
+	console.log("grass");
+	}
+	
+	function grass1(){
+	playerchoice = "grass";
+	document.getElementById("playerpokemon").src = 'pokemons/bulbasaur.gif';
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "visible";
+	console.log("grass");
+	}
+	
+	function ice(){
+	playerchoice = "ice";
+	document.getElementById("playerpokemon").src = 'pokemons/dewgong.gif';
+	document.getElementById("decoratept1").style.visibility = "hidden";
+	
+	document.getElementById("decoratept2").style.visibility = "hidden";
+	
+	document.getElementById("decoratept3").style.visibility = "hidden";
+	
+	document.getElementById("decoratept4").style.visibility = "hidden";
+	
+	document.getElementById("decoratept5").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "visible";
+	console.log("ice");
+	}
+	
+	function ice1(){
+	playerchoice = "ice";
+	document.getElementById("playerpokemon").src = 'pokemons/dewgong.gif';
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept9").style.visibility = "visible";
+	console.log("ice");
+	}
+	
+	function buttonResize() {
+	document.getElementById("battle").style.width="500px";
+	document.getElementById("battle").style.marginLeft= "-280px";
+	}
+	
+	function resumeBattle() {
+	document.getElementById("decoratept7").style.visibility = "visible";
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("decoratept8").style.visibility = "visible";
+	
+	document.getElementById("decoratept9").style.visibility = "hidden";
+	
+	document.getElementById("decoratept11").style.visibility = "hidden";
+	
+	document.getElementById("decoratept22").style.visibility = "hidden";
+	
+	document.getElementById("decoratept33").style.visibility = "hidden";
+	
+	document.getElementById("decoratept44").style.visibility = "hidden";
+	
+	document.getElementById("decoratept55").style.visibility = "hidden";
+	
+	document.getElementById("decoratept6").style.visibility = "hidden";
+	
+	document.getElementById("gameover").style.visibility = "hidden";
+	
+	if (playerhealth <= 0){
+	alert("You lost!, Press restart game using the button above");
+	}
+	
+	else if (computerhealth <= 0){
+	alert("You win!, Press restart game using the button above");
+	}
+	
+	}
+	</script>
+		
+	</body>
+</html>
+

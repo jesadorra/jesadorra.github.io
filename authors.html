@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>
+          Game Website
+		</title>
+	   <meta charset="utf-8">
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+	   <style>
+	   
+		body {
+		background-image: url("bg2.png");
+		background-size: cover;
+		background-attachment: fixed;
+		text-align: center;
+		height: 100%;
+		background-position: center;			
+		background-repeat: no-repeat;
+		background-color: white;
+		}
+		
+		@font-face {
+		font-family: "ketchumregular";
+		src: url("fonts/ketchum.otf") format("woff2"),
+        url("ketchum-webfont.woff") format("woff");
+		font-weight: normal;
+		font-style: normal;
+		}
+		
+		@keyframes animate {
+		
+		0% {
+		transform: translateY(-3px);
+		}
+		
+		50% {
+		transform: translateY(3px);
+		}
+		
+		100% {
+		transform: translateY(-3px);
+		}
+		}
+			
+		#navbar{
+		background-color: #3b5ba7;
+		color: white;
+		height: 60px;			
+		font-family: 'Press Start 2P', cursive;
+		}
+	
+		#authors a {
+		text-decoration: none;
+		color: white;
+		}
+		
+		#instructions1 a {
+		text-decoration: none;			
+		color: white;
+		}
+		
+		#reset a {
+		text-decoration: none;			
+		color: white;
+		}
+		
+		#authors, #instructions1, #reset {
+		font-size: 15px;
+		border-right: 2px solid #758ABD;
+		transition: 0.2s;
+		color: white;
+		padding-bottom:15px;
+		padding-left:30px;
+		padding-right:30px;
+		padding-top:23px;
+		}
+			
+		#authors:hover, #instructions1:hover, #reset:hover {
+		background-color: #758ABD;
+		}
+		
+		td{
+		padding: 15px;
+		}
+		
+		td a:link, td a:visited{
+		color: white;
+		text-decoration: none;
+		}
+		
+		#jake{
+		border-radius:50%;
+		}
+		
+		#name1{
+		text-align: center;
+		}
+		
+		
+		#annikka{
+		border-radius:50%;
+		}
+		
+		#name2{
+		text-align: center;
+		}
+		
+		
+		
+		#thecreators{
+		text-align:center;
+		font-family: 'Press Start 2P', cursive;
+		-webkit-text-stroke: 3px #3b5ba7; 
+		color: #ffcb05;
+		text-shadow: -4px 2px #1c2c5e;
+		animation: animate 1.5s linear infinite;
+		font-size:90px;
+		}
+		
+		#euri{
+		border-radius:50%;
+		}
+		
+		#first {
+		margin-top:60px;
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom: 100px;
+		}
+		
+		#name3{
+		text-align: center;
+		}
+		
+		#name4{
+		text-align: center;
+		}
+		
+		#name1, #name2, #name3, #name4 {
+		font-family: 'Press Start 2P', cursive;
+		font-size: 25px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-radius: 50px;
+		width:450px;
+		}
+		
+		#name1, #name2, #name3, #name4, #jake, #annikka, #euri, #karl {
+		animation: animate 1.5s linear infinite;
+		}
+		
+		#name1, #name4 {
+		background-color: #3b5ba7;
+		color: #ffcb05; 
+		}
+		
+		#name2, #name3 {
+		background-color: #ffcb05;
+		color: #3b5ba7; 
+		}
+		
+		#karl {
+		border-radius:50%;
+		}
+		
+		#thetable{
+		margin-left:auto;
+		margin-right:auto;
+		}
+
+		</style>
+		
+	</head>
+	
+	<body>
+	
+	<div id="navbar">
+		<table>
+			<tr>
+				<td id="authors"><a href="authors.html">The Creators</a></td>
+				<td id="instructions1"><a href="instructions.html">Instructions</a></td>
+				<td id="reset"><a href="battlegrounds.html">Back to Game </a></td>	
+			</tr>
+		</table>
+	</div>
+	<br>
+	<h1 id = "thecreators">MEET THE <br>GAME CREATORS! </h1>
+		<br>
+		<br>
+	
+	<div id = "first">
+	<table id = "thetable">
+		<tr>
+			<td><input type="image" src = "pokeballshake.gif" id = "jake" alt = "jake" width = "300" height = "300" onclick="jake()">
+				<br>
+				<br>
+			<h2 id = "name1">PLAYER 1</h2></td>
+		
+		
+		
+			<td><input type="image" src = "pokeballshake.gif" id = "euri" alt = "euri" width = "300" height = "300" onclick="euri()">
+				<br>
+				<br>
+			<h2 id = "name3">PLAYER 2</h2></td>
+		</tr>
+	
+		
+	
+		<tr>
+		
+			<td><input type="image" src = "pokeballshake.gif" id = "annikka" alt = "annikka" width = "300" height = "300" onclick="nikki()">
+				<br>
+				<br>
+		<h2 id = "name2">PLAYER 3</h2></td>
+				
+		
+		
+		
+			<td><input type="image" src = "pokeballshake.gif" id = "karl" alt = "karl" width = "300" height = "300" onclick="karl()">
+				<br>
+				<br>
+			<h2 id = "name4">PLAYER 4</h2></td>
+		</tr>
+	</table>
+	</div>
+	
+	
+	
+	
+	
+		
+		<script>
+		
+		function jake() {
+		
+		document.getElementById("jake").src = 'authors/jake.png';
+		document.getElementById("name1").innerHTML = "JACOB SADORRA";
+		document.getElementById("name1").style.paddingLeft = '20px';
+		document.getElementById("name1").style.paddingRight = '20px';
+		
+		document.getElementById("jake").style.border = '10px solid #3b5ba7';
+	
+		}
+		
+		function karl() {
+		
+		document.getElementById("karl").src = 'authors/karl.jpg';
+		document.getElementById("name4").innerHTML = "KARL PALIZADA";
+		document.getElementById("name4").style.paddingLeft = '20px';
+		document.getElementById("name4").style.paddingRight = '20px';
+		
+		document.getElementById("karl").style.border = '10px solid #3b5ba7';
+		
+		}
+		
+		function nikki() {
+		
+		document.getElementById("annikka").src = 'authors/annikka.jpg';
+		document.getElementById("name2").innerHTML = "ANNIKKA GUEVARRA";
+		document.getElementById("name2").style.paddingLeft = '20px';
+		document.getElementById("name2").style.paddingRight = '20px';
+		
+		document.getElementById("annikka").style.border = '10px solid #ffcb05';
+		
+		
+		}
+		
+		function euri() {
+		
+		document.getElementById("euri").src = 'authors/euri.jpg';
+		document.getElementById("name3").innerHTML = "EURANE ENRIQUEZ";
+		document.getElementById("name3").style.paddingLeft = '20px';
+		document.getElementById("name3").style.paddingRight = '20px';
+		
+		document.getElementById("euri").style.border = '10px solid #ffcb05';
+		
+		}
+		
+		</script>
+	</body>
+</html>

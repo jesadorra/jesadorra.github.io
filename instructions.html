@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Instructions</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+		
+			<style>
+			body{
+			background-image: url("bg2.png");
+			background-size: cover;
+			background-attachment: fixed;
+			text-align: center;
+			height: 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: white;
+			}
+			
+			@keyframes animate {
+		
+			0% {
+			transform: translateY(-3px);
+			}
+		
+			50% {
+			transform: translateY(3px);
+			}
+		
+			100% {
+			transform: translateY(-3px);
+			}
+			}
+		
+			h1{
+			font-size: 90px;
+			}
+			
+			p{
+			font-size: 30px;
+			font-family: 'VT323', monospace;
+			color: #393939;
+			}
+			
+			#howplay {
+			margin-top: 70px;
+			font-family: 'Press Start 2P', cursive;
+			-webkit-text-stroke: 4px #3b5ba7; 
+			color: #ffcb05;
+			text-shadow: -5px 5px #1c2c5e;
+			animation: animate 1.5s linear infinite;
+			}
+			
+			#instructions {
+			background-color: rgb(230, 230, 230, 0.8);
+			padding-left: 100px;
+			padding-right: 100px;
+			border-radius: 40px;
+			}
+			
+			#howwin {
+			margin-top: 70px;
+			font-family: 'Press Start 2P', cursive;
+			-webkit-text-stroke: 4px #3b5ba7; 
+			color: #ffcb05;
+			text-shadow: -5px 5px #1c2c5e;
+			animation: animate 1.5s linear infinite;
+			}
+			
+			#howtowin {
+			background-color:  rgb(230, 230, 230, 0.8);
+			padding-left: 100px;
+			padding-right: 100px;
+			border-radius: 40px;
+			padding-top: 80px;
+			height: 350px;
+			text-align: center;
+			font-size: 40px;
+			}
+			
+			#navbar{
+			background-color: #3b5ba7;
+			color: white;
+			height: 60px;
+			font-family: 'Press Start 2P', cursive;
+			}
+		
+			#authors a {
+			text-decoration: none;
+			color: white;
+			}
+			
+			#instructions1 a {
+			text-decoration: none;
+			color: white;
+			}
+			
+			#reset a {
+			text-decoration: none;
+			color: white;
+			}
+			
+			#authors, #instructions1, #reset {
+			font-size: 15px;
+			border-right: 2px solid #758ABD;
+			transition: 0.2s;
+			color: white;
+			padding-bottom:15px;
+			}
+			
+			#authors:hover, #instructions1:hover, #reset:hover {
+			background-color: #758ABD;
+			}
+			
+			#continue {
+			margin-bottom: 30px;
+			margin-top: 60px;
+			}
+			
+			#continue a {
+			background-color: #3b5ba7;
+			color: #ffcb05;
+			font-family: 'Press Start 2P', cursive;
+			text-decoration: none;
+			border: 4px solid #ffcb05;
+			border-radius: 50px;
+			font-size: 70px;
+			padding: 25px;
+			text-shadow: -5px 2px #C29C0C;
+			transition: 0.2s
+			}
+			
+			#continue a:hover {
+			background-color: #2F4985
+			}
+			
+			#chart {
+			background-color: #3b5ba7;
+			color: #ffcb05;
+			font-family: 'Press Start 2P', cursive;
+			text-decoration: none;
+			border: 0.1px solid #3b5ba7;
+			border-radius: 50px;
+			font-size: 10px;
+			padding-left: 25px;
+			padding-right: 25px;
+			transition: 0.02s;
+			padding-top: 10px;
+			
+			}
+			
+			#chart:hover {
+			background-color: #2F4985
+			}
+			
+			td {
+			padding-left: 30px;
+			padding-right:30px;
+			}
+			
+			#elements {
+			margin: 0;
+			position: absolute;
+			left: 50%;
+			top: 110%;
+			width: 1100px;
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+			padding: 10px;
+			font-family: 'Press Start 2P', cursive;
+			border-radius: 50px;
+			background-color: rgb(230, 230, 230, 0.8);
+			color: #393939;
+			border: 1px solid rgb(230, 230, 230, 0.8);
+			padding-left: 40px;
+			}
+			
+			#close {
+			background-color: #3b5ba7;
+			color: #ffcb05;
+			font-family: 'Press Start 2P', cursive;
+			text-decoration: none;
+			border: 0.1px solid #3b5ba7;
+			border-radius: 50px;
+			font-size: 10px;
+			padding-left: 25px;
+			padding-right: 25px;
+			transition: 0.02s;
+			margin-bottom:30px;
+			}
+			
+			#close:hover {
+			background-color: #2F4985
+			}
+			
+			</style>
+
+    </head>
+	
+    <body>
+	
+	<div id="navbar">
+		<table>
+			<tr>
+				<td id="authors"><a href="authors.html"><br>The Creators</a></td>
+				<td id="instructions1"><a href="instructions.html"><br>Instructions</a></td>
+				<td id="reset"> <a href="battlegrounds.html"><br>Back to Game </a></td>	
+			</tr>
+		</table>
+	</div>
+	
+        <div class="container">
+            <h1 id="howplay">HOW TO PLAY</h1><br>
+			
+			<div id="instructions">
+				<br><p>1. Click a pokémon of your choice. (Fire, Ground, Ice, Rock, Grass)</p><br>
+				<p>2. The computer will generate a random pokémon that will be used to fight against you</p><br>
+				<p>3. You will lose one (1) health point if your chosen pokémon isn't effective against the chosen pokémon of the computer and vice versa.</p><br>
+				<p>4. If your chosen pokémon type is the opponent's weakness, your attack will deal five (5) damage and vice versa.
+				<p>5. The game will end if either one of you lost all your health points.</p><br>
+			</div>
+			
+			<h1 id="howwin">HOW TO WIN</h1><br>
+			<p id="howtowin">To win a match, you must know which element is effective against which element and a huge amount of luck<br><br>
+			<button id="chart" type="button" class="btn btn-outline-danger" onclick="showChart()">Cheat Sheet</button></p>
+			<h1 id="continue"><a href="battlegrounds.html">CONTINUE!</a></h1>
+			
+			<div id="elements">
+			
+					<p><br>Fire BEATS Ice<br>
+					
+					<p>Ground BEATS Grass<br>
+					<p>Ice BEATS Ground<br>
+					<p>Rock BEATS Fire<br>
+					<p>Grass BEATS Rock<br><br></p>
+					
+					<button id="close" type="button" class="btn btn-outline-danger" onclick="closeChart()">CLOSE</button>
+			
+			</div>
+		</div>
+		
+		<script>
+			
+			document.getElementById("elements").style.visibility = "hidden";
+			
+			function showChart() {
+	
+			document.getElementById("howtowin").style.visibility = "hidden";
+			document.getElementById("elements").style.visibility = "visible";
+			
+			document.getElementById("continue").style.marginTop = '230px';
+			
+			}
+			
+			function closeChart() {
+			
+			document.getElementById("howtowin").style.visibility = "visible";
+			document.getElementById("elements").style.visibility = "hidden";
+			
+			document.getElementById("continue").style.marginTop = '60px';
+			}
+			
+		</script>
+    </body>
+</html>
